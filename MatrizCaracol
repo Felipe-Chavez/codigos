@@ -1,0 +1,48 @@
+
+package matrizcaracol;
+
+import java.util.Scanner;
+
+public class MatrizCaracol {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // <<<---------Ingrese el codigo desde aqui----------------
+        int[][] caracol = new int [100][100];
+        int n;
+        Scanner leer = new Scanner (System.in);
+        System.out.print("DIMENSION N*N = ");
+        n = leer.nextInt();
+        
+        int inicio = 0;
+        int limite = n-1;
+        int c=1;
+        
+        while (c<=(n*n)){
+            for(int i = inicio; i<=limite;i++){
+                caracol [inicio][i]=c++;
+            }
+             for(int i = inicio+1; i<=limite;i++){
+                caracol [i][limite]=c++;
+            }
+              for(int i = limite-1; i>=inicio;i--){
+                caracol [limite][i]=c++;
+            }
+               for(int i = limite-1; i>=inicio+1;i--){
+               caracol [i][inicio]=c++;
+            }
+            inicio = inicio + 1;
+            limite = limite-1;
+        }
+        for(int i = 0; i<n ; i++){
+            System.out.println();
+            for(int j=0; j<n ; j++){
+                System.out.print(caracol[i][j]+"\t");
+            }
+        }
+        
+    }
+    
+}
