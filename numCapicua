@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class CapicuaModular {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese un número entero positivo: ");
+        int numero = scanner.nextInt();
+
+        if (esCapicua(numero)) {
+            System.out.println("El número es capicúa.");
+        } else {
+            System.out.println("El número no es capicúa.");
+        }
+    }
+
+    // Verificar si un número es capicúa utilizando programación modular
+    private static boolean esCapicua(int numero) {
+        int numeroInvertido = invertirNumero(numero);
+        return numero == numeroInvertido;
+    }
+
+    // Invertir un número entero utilizando programación modular
+    private static int invertirNumero(int numero) {
+        int numeroInvertido = 0;
+
+        while (numero > 0) {
+            int digito = numero % 10;
+            numeroInvertido = numeroInvertido * 10 + digito;
+            numero /= 10;
+        }
+
+        return numeroInvertido;
+    }
+}
